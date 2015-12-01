@@ -116,11 +116,7 @@
 			
 			<div id="footer-right">
 				<div id="footer-articles" class="section">
-					<h2>Latest Articles</h2>
-					<?php 
-						$block = module_invoke('views', 'block_view', 'content-block_3');
-					   print render($block['content']);
-					?>
+					
 				</div>
 			</div>
 
