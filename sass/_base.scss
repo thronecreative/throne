@@ -1,0 +1,346 @@
+/* VARS 
+-------------------------------------------------------------- */
+$body_width: 				100%;
+$main_width:				1000px;
+$gutter:					   60px;
+$controls_width:			40px;
+$body_pad:					20px;
+$main_width: 				800px;
+$footer_height: 			350px;
+$socail_width: 			50px;
+$extras_width:      350px;
+$logo_width:      5%;
+$share_icon_width:      80px;
+$connect_width:       120vh;
+
+$bp_lg:           1200px;
+$bp_med:          1000px;
+$bp_sm:           600px;
+
+/*  COLORS  */
+$color_main   :     #445056;
+$color_dk     :     #373737;
+$color_med    :     #85989b;
+$color_lt     :     #cde8e8;
+$color_accent :     #c5646a;
+$color_exlt   :     #f1f1f1;
+
+
+
+//$color_accent:       #445056; 
+$color_accent2:       #2aace3;
+$color_accent3:       #506f7f; 
+$color_main_lt:      #cde8e8;
+$color_main_lt2:      #f1f1f1;
+$page_bg:            #fff;
+$page_bg_lt:        darken($page_bg, 4%);
+$page_bg_med:        darken($page_bg, 8%);
+$page_bg_dk:        darken($page_bg, 30%);
+
+/*  TYPOGROPHY */
+$font_main:					'latin_modern_roman10_regular', serif;
+$font_header:				'Raleway', sans-serif;
+$font_fancy:        'latin_modern_roman_slante10Rg', serif;
+
+$font_weight_lt:         100;
+$font_weight_reg:        200;
+$font_weight_bold:       700;
+
+/*  TRANSITIONS  */
+$default-transition-property : all;
+$default-transition-duration : .2s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$border_solid_lt:       lighten($color_main_lt, 15%) solid 1px;
+$border_solid_accent:   $color_accent solid 1px;
+$border_dashed_lt:      lighten($color_main_lt, 15%) dashed 1px;
+$border_dashed_accent:  $color_accent dashed 1px;
+$border_dashed_main:  $color_main dashed 1px;
+$border_dotted_accent:  $color_accent dotted 1px;
+
+/* MIX-INS 
+-------------------------------------------------------------- */
+@mixin bp($point) {
+  @if $point == l {
+    @media (max-width: $bp_lg) { @content; }
+  }
+  @else if $point == m {
+    @media (max-width: $bp_med) { @content; }
+  }
+  @else if $point == s {
+    @media (max-width: $bp_sm)  { @content; }
+  }
+}
+
+
+
+/* PLACEHOLDERS
+-------------------------------------------------------------- */
+%text_btn{
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-family: $font_header;
+  font-weight: $font_weight_reg;
+}
+
+%a_color_main{
+  color: $color_main;
+
+  &:hover{
+    color: $color_accent;
+  }
+}
+
+%a_color_lt{
+  color: $color_accent3;
+
+  &:hover{
+    color: $color_accent;
+  }
+}
+
+%a_color_wt{
+  color: #fff;
+
+  &:hover{
+    color: $color_main;
+  }
+}
+
+%bull{
+  color: $color_accent;
+  margin: 0 10px;
+}
+
+
+.bg-dk{
+  background-color: $color_dk;
+  color: $color_exlt;
+
+  h1, h2, h3{
+    color: $color_accent;
+  }
+
+  a{
+    color: $color_lt;
+  }
+
+  p a{border-bottom: $border_dashed_accent;}
+}
+
+.bg-med{
+  background-color: $color_med;
+  color: $color_exlt;
+
+  h1, h2, h3{
+    color: $color_main;
+  }
+
+  .arrows{
+    color: $color_med;
+  }
+
+  .btn{
+    a{
+      background-color: $color_dk;
+      color: $color_med;
+    }
+
+    a:hover {
+      background-color: $color_accent;
+    }
+  }
+
+  a{
+    color: $color_lt;
+
+    &:hover{
+      color: $color_exlt;
+    }
+  }
+
+  .btn{
+
+    a:hover {
+      background-color: $color_lt;
+    }
+  }
+
+  p a{border-bottom: $border_dashed_accent;}
+}
+
+.bg-main{
+  background-color: $color_main;
+  color: $color_exlt;
+
+  h1, h2, h3{
+    color: $color_med;
+  }
+
+   .arrows{
+    color: $color_med;
+  }
+
+  .btn{
+    a{
+      background-color: $color_dk;
+      color: $color_med;
+    }
+
+    a:hover {
+      background-color: $color_accent;
+    }
+  }
+
+  a{
+    color: $color_lt;
+  }
+  p a{border-bottom: $border_dashed_accent;}
+}
+
+.bg-lt{
+  background-color: $color_lt;
+  color: $color_main;
+
+  h1, h2, h3{
+    color: $color_med;
+  }
+
+  a{
+    color: $color_med;
+    
+  }
+
+  p a{border-bottom: $border_dashed_accent;}
+}
+
+
+
+
+/* BASIC STYLES
+-------------------------------------------------------------- */
+*{
+  @include box-sizing('border-box');
+  -webkit-backface-visibility: hidden;
+}
+
+body{
+  font-family: $font_main;
+  background-color: $page_bg;  
+  color: $color_main;
+  font-size: 18px;
+  font-weight: $font_weight_lt; 
+}
+
+a{
+  @include transition;
+  color: lighten($color_main, 20%);
+  text-decoration: none;
+
+  &.colorbox{
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  
+  &:hover{
+    color: $color_accent;
+  }
+}
+
+p{
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 200;
+  text-align: justify;
+
+  a{
+
+    border-bottom: $color_accent dashed 1px;
+  }
+}
+
+h2 a{
+  @extend %a_color_lt;
+}
+
+ul,
+ul.menu,
+ul.menu li{
+  list-style: none;
+  text-align: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+li a.active,
+li.opened span.nolink{color: $color_main;}
+
+
+.bull{
+  @extend %bull;
+}
+
+
+/* TYPOGRAPHY STYLES
+-------------------------------------------------------------- */
+body{
+}
+  
+h1, h2, h3, h4{
+  font-weight: $font_weight_lt;
+  font-family: $font_header;
+}
+
+h1{
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: $gutter;
+
+  @include bp(s){
+    font-size: 20px;
+  }
+}
+
+h2{
+  font-size: 30px;
+}
+
+.section-title{
+  font-weight: $font_weight_lt;
+  font-family: $font_header;
+  color: $color_accent;
+  margin-bottom: 10px;
+}
+
+em{
+  font-family: $font_fancy;
+}
+
+#page-title,
+h2.pane-title{
+  font-size: 3em;
+
+  @include bp(s){
+    font-size: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
